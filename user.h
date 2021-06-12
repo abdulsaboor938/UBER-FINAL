@@ -13,9 +13,15 @@ protected:
 	string email;
 	string ph_num;
 	//Trips pointers here
+	int total_trips;
+
 public:
 	User(const string&, const Date&, const string&, const string&);
 	void print()const;
+	//copy constructors
+	//stream overload operators
+	//getters and setters
+	//average rating
 
 public:
 	void change_name(const string&);

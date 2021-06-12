@@ -2,18 +2,13 @@
 using namespace std;
 
 #include"date.h"
-#include"user.h"
+//#include"user.h"
+#include"driver.h"
 
 int main()
 {
-	User u("abdul", Date(17, 1, 2000), "abdulsaboor938@gmail.com", "0336-66932750");
-	u.print();
-	cout << endl;
-	u.change_name("saboor");
-	u.change_DOB(Date(17, 1, 2002));
-	u.change_ph("0346-6932750");
-	u.print();
-	cout << endl;
+	Driver u("saboor", Date(17, 1, 2002), "abdulsaboor938@gmail.com", "0334-66932750","lic1234","veh5678");
+	cout << u << endl;
 	system("pause");
 	return 0;
 }
