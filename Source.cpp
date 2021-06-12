@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-	Date d(17, 1, 2002);
+	Date d;
 	cout << d << endl;
 	system("pause");
 	return 0;
