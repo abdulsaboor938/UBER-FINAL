@@ -1,9 +1,9 @@
-#include"Passenger.h"
+#include"passenger.h"
 
-Passenger::Passenger(const string& N, const Date& D, const string& E, const string& P, const Payment& PY) :User(N, D, E, P), method{ PY },P_status{false}
+passenger::passenger(const string& N, const Date& D, const string& E, const string& P, const Payment& PY) :user(N, D, E, P), method{ PY },P_status{false}
 {}
 
-ostream& operator<<(ostream& out, const Passenger& D)
+ostream& operator<<(ostream& out, const passenger& D)
 {
 	D.print();
 	cout << D.method;

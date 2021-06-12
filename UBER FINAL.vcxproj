@@ -144,6 +144,7 @@
     <ClCompile Include="passenger.cpp" />
     <ClCompile Include="payment.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="trip.cpp" />
     <ClCompile Include="user.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +152,7 @@
     <ClInclude Include="driver.h" />
     <ClInclude Include="passenger.h" />
     <ClInclude Include="payment.h" />
+    <ClInclude Include="trip.h" />
     <ClInclude Include="user.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

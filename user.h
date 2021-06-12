@@ -5,7 +5,7 @@ using namespace std;
 
 #ifndef USER_H
 #define USER_H
-class User
+class user
 {
 protected:
 	string name;
@@ -14,7 +14,7 @@ protected:
 	string ph_num;
 	//Trips pointers here
 	int total_trips;
-	User(const string&, const Date&, const string&, const string&);
+	user(const string&, const Date&, const string&, const string&);
 	void print()const;
 	//copy constructors
 	//stream overload operators

@@ -1,9 +1,9 @@
 #include"user.h"
 
-User::User(const string& N, const Date& D, const string& E, const string& P) :name{ N }, DOB{ D }, email{ E }, ph_num{ P },total_trips{0}
+user::user(const string& N, const Date& D, const string& E, const string& P) :name{ N }, DOB{ D }, email{ E }, ph_num{ P },total_trips{0}
 {}
 
-void User::print()const
+void user::print()const
 {
 	cout << name << endl;
 	cout << DOB << endl;
@@ -12,15 +12,15 @@ void User::print()const
 	cout << "Total Trips: " << total_trips << endl;
 }
 
-void User::change_name(const string& N)
+void user::change_name(const string& N)
 {
 	name = N;
 }
-void User::change_DOB(const Date& D)
+void user::change_DOB(const Date& D)
 {
 	DOB = D;
 }
-void User::change_ph(const string& P)
+void user::change_ph(const string& P)
 {
 	ph_num = P;
 }
