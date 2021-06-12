@@ -2,7 +2,7 @@
 
 #ifndef DRIVER_H
 #define DRIVER_H
-class Driver :public User
+class Driver :protected User
 {
 	string lic_num;
 	string veh_num;

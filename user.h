@@ -14,8 +14,6 @@ protected:
 	string ph_num;
 	//Trips pointers here
 	int total_trips;
-
-public:
 	User(const string&, const Date&, const string&, const string&);
 	void print()const;
 	//copy constructors
