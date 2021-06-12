@@ -16,5 +16,10 @@ protected:
 public:
 	User(const string&, const Date&, const string&, const string&);
 	void print()const;
+
+public:
+	void change_name(const string&);
+	void change_DOB(const Date&);
+	void change_ph(const string&);
 };
 #endif

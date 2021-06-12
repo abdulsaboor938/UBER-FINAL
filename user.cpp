@@ -10,3 +10,16 @@ void User::print()const
 	cout << email << endl;
 	cout << ph_num << endl;
 }
+
+void User::change_name(const string& N)
+{
+	name = N;
+}
+void User::change_DOB(const Date& D)
+{
+	DOB = D;
+}
+void User::change_ph(const string& P)
+{
+	ph_num = P;
+}

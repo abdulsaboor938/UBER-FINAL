@@ -6,7 +6,12 @@ using namespace std;
 
 int main()
 {
-	User u("saboor", Date(17, 1, 2002), "abdulsaboor938@gmail.com", "0346-6932750");
+	User u("abdul", Date(17, 1, 2000), "abdulsaboor938@gmail.com", "0336-66932750");
+	u.print();
+	cout << endl;
+	u.change_name("saboor");
+	u.change_DOB(Date(17, 1, 2002));
+	u.change_ph("0346-6932750");
 	u.print();
 	cout << endl;
 	system("pause");
