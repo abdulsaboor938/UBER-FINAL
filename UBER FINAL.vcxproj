@@ -142,6 +142,7 @@
     <ClCompile Include="date.cpp" />
     <ClCompile Include="driver.cpp" />
     <ClCompile Include="passenger.cpp" />
+    <ClCompile Include="payment.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="user.cpp" />
   </ItemGroup>
@@ -149,6 +150,7 @@
     <ClInclude Include="date.h" />
     <ClInclude Include="driver.h" />
     <ClInclude Include="passenger.h" />
+    <ClInclude Include="payment.h" />
     <ClInclude Include="user.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

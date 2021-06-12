@@ -4,6 +4,7 @@
 #define DRIVER_H
 class Driver :protected User
 {
+	bool D_status; // 1 means driving
 	string lic_num;
 	string veh_num;
 public:
