@@ -11,6 +11,7 @@ class Payment
 
 public:
 	Payment(const string&, const string&);
+	Payment(const string&);
 	friend ostream& operator<<(ostream&, const Payment&);
 };
 #endif

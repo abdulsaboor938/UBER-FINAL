@@ -6,14 +6,19 @@ using namespace std;
 #include"driver.h"
 #include"passenger.h"
 #include"payment.h"
+#include"trip.h"
 
 int main()
 {
-	driver u("saboor", Date(17, 1, 2002), "abdulsaboor938@gmail.com", "0334-66932750","lic1234","veh5678");
+	//driver u("saboor", Date(17, 1, 2002), "abdulsaboor938@gmail.com", "0334-66932750","lic1234","veh5678");
 	passenger u1("saboor", Date(17, 1, 2002), "abdulsaboor938@gmail.com", "0334-66932750",Payment("1234-5678-1234-5678","card"));
+	passenger* u = &u1;
 	cout << u << endl;
 	cout << "---------------------" << endl;
-	cout << u1 << endl;
+	//cout << u1 << endl;
+	trip T("A", "B", u,"saboor");
+	cout << T << endl;
+
 	system("pause");
 	return 0;
 }
