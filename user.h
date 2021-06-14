@@ -3,7 +3,7 @@
 #include"date.h"
 using namespace std;
 
-class trip;
+#include"trip.h"
 
 #ifndef USER_H
 #define USER_H
@@ -28,7 +28,5 @@ public:
 	void change_name(const string&);
 	void change_DOB(const Date&);
 	void change_ph(const string&);
-
-	friend class trip;
 };
 #endif

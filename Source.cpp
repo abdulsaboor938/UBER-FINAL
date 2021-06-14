@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 
 #include"date.h"
@@ -8,29 +9,6 @@ using namespace std;
 #include"payment.h"
 #include"trip.h"
 
-int main()
-{
-	//driver u("saboor", Date(17, 1, 2002), "abdulsaboor938@gmail.com", "0334-66932750","lic1234","veh5678");
-	passenger u1("saboor", Date(17, 1, 2002), "abdulsaboor938@gmail.com", "0334-66932750",Payment("1234-5678-1234-5678","card"));
-	passenger* u = &u1;
-	cout << u << endl;
-	cout << "---------------------" << endl;
-	//cout << u1 << endl;
-	trip T("A", "B", u,"saboor");
-	cout << T << endl;
-
-	system("pause");
-	return 0;
-}
-
-
-/*#include <iostream>
-#include "payment.h"
-#include "driver.h"
-#include "date.h"
-#include "passanger.h"
-#include "trip.h"
-using namespace std;
 
 const int SIZE=20;
 //an array of trips to keep pointers of all the trips of uber application
@@ -52,19 +30,25 @@ void printUberTrips() //function to print uberTrips
 		cout<<i<<" "<<*uberTrips[i]<<endl;
 	}
 } 
-void main()
+int main()
 {
 
-	passanger * p1= new passanger("P1", date(10,10,1990), "ali@yahoo.com", "0334564334" ,payment("111-222-333-333", "card") );
-	driver *d1= new driver("D1", date(16,1,1990), "ayesha@yahoo.com", "0357757585", "Lin1197717", "VIN9817917");
+	passenger * p1= new passenger("P1", Date(10,10,1990), "ali@yahoo.com", "0334564334" ,payment("111-222-333-333", "card") );
+	driver *d1= new driver("D1", Date(16,1,1990), "ayesha@yahoo.com", "0357757585", "Lin1197717", "VIN9817917");
 	
 	//////Test Case 1, user books, driver picks, driver ends (rating can be given only in this case)
-	cout<<*p1<<endl;
-	cout<<*d1<<endl; 
+	//cout<<*p1<<endl;
+	//cout<<*d1<<endl; 
 
-	addToUberTrips( p1->bookRide("A", "B"));// will create a new trip and add it to uberTrips array
-	cout<<*uberTrips[n-1];// will print this trip
-	addToUberTrips( p1->bookRide("C", "D"));//prints error as p1 has already booked a ride
+	//addToUberTrips( p1->bookRide("A", "B"));// will create a new trip and add it to uberTrips array
+
+	passenger p2("P1", Date(10, 10, 1990), "ali@yahoo.com", "0334564334", payment("111-222-333-333", "card"));
+	trip *temp=p2.bookRide("A", "B");
+	//cout << *temp;
+	// There is an error in printing pointer, maybe because of copy constructor
+
+	//cout<<*uberTrips[n-1];// will print this trip
+	/*addToUberTrips( p1->bookRide("C", "D"));//prints error as p1 has already booked a ride
 	d1->pickARide(uberTrips[n-1]); //will assign  d1 to uberTrip[0], the status of this ride will also change to InProgress
 	d1->ratePassanger(uberTrips[n-1], 5); //error as the trip is not complete
 	p1->rateDriver(uberTrips[n-1],4); //error as the trip is not complete
@@ -128,7 +112,7 @@ void main()
 
 	
 
-
+	*/
 	system("PAUSE");
-	
-}*/
+	return 0;
+}

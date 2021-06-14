@@ -6,11 +6,11 @@
 class passenger :protected user
 {
 	bool P_status; // 1 means riding
-	Payment p1, p2, p3;
+	payment p1, p2, p3;
 	int methods;
 public:
-	passenger(const string&, const Date&, const string&, const string&,const Payment&);
+	passenger(const string&, const Date&, const string&, const string&,const payment&);
 	friend ostream& operator<<(ostream&, const passenger&);
-	void bookride(const string&, const string&);
+	trip* bookRide(const string&, const string&);
 };
 #endif

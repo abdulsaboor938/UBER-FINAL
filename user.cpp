@@ -1,6 +1,6 @@
 #include"user.h"
 
-user::user(const string& N, const Date& D, const string& E, const string& P) :name{ N }, DOB{ D }, email{ E }, ph_num{ P },total_trips{0}
+user::user(const string& N, const Date& D, const string& E, const string& P) :name{ N }, DOB{ D }, email{ E }, ph_num{ P },total_trips{0},curr_trip{nullptr}
 {}
 
 void user::print()const

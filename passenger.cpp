@@ -1,6 +1,6 @@
 #include"passenger.h"
 
-passenger::passenger(const string& N, const Date& D, const string& E, const string& P, const Payment& PY) :user(N, D, E, P), p1{ PY }, p2{ PY }, p3{ PY }, P_status{ false }, methods{ 1 }
+passenger::passenger(const string& N, const Date& D, const string& E, const string& P, const payment& PY) :user(N, D, E, P), p1{ PY }, p2{ PY }, p3{ PY }, P_status{ false }, methods{ 1 }
 {}
 
 ostream& operator<<(ostream& out, const passenger& D)
@@ -19,7 +19,9 @@ ostream& operator<<(ostream& out, const passenger& D)
 	return out;
 }
 
-void passenger::bookride(const string& P, const string& D)
+trip* passenger::bookRide(const string& P, const string& D)
 {
-
+	trip temp(P, D, this, this->name);
+	curr_trip = &temp;
+	return curr_trip;
 }
