@@ -28,6 +28,7 @@ trip* passenger::bookRide(const string& P, const string& D)
 	else {
 		trip* temp = new trip(P, D, this, this->name);
 		curr_trip = temp;
+		Trips.push_back(temp);
 		return curr_trip;
 	}
 }

@@ -24,6 +24,7 @@ void driver::pickARide(trip*& T)
 	}
 	else
 	{
+		Trips.push_back(T);
 		T->set_driver(this, this->name);
 		T->change_status(1);
 		curr_trip = T->get_ptr();

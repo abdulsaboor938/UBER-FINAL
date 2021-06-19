@@ -2,6 +2,11 @@
 #include<vector>
 using namespace std;
 
+void funcx()
+{
+	cout << "Hello this works" << endl;
+}
+
 #include"date.h"
 //#include"user.h"
 #include"driver.h"

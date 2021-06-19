@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include<vector>
 #include"date.h"
 using namespace std;
 
@@ -14,9 +15,8 @@ protected:
 	Date DOB;
 	string email;
 	string ph_num;
-	//Trips pointers here
+	vector<trip*> Trips;
 	trip *curr_trip;
-	int total_trips;
 	user(const string&, const Date&, const string&, const string&);
 	void print()const;
 	//copy constructors

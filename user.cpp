@@ -1,6 +1,6 @@
 #include"user.h"
 
-user::user(const string& N, const Date& D, const string& E, const string& P) :name{ N }, DOB{ D }, email{ E }, ph_num{ P },total_trips{0},curr_trip{nullptr}
+user::user(const string& N, const Date& D, const string& E, const string& P) :name{ N }, DOB{ D }, email{ E }, ph_num{ P },curr_trip{nullptr}
 {}
 
 void user::print()const
@@ -9,7 +9,7 @@ void user::print()const
 	cout << DOB << endl;
 	cout << email << endl;
 	cout << ph_num << endl;
-	cout << "Total Trips: " << total_trips << endl;
+	cout << "Total Trips: " << Trips.size() << endl;
 }
 
 void user::change_name(const string& N)
