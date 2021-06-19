@@ -44,7 +44,7 @@ int main()
 
 	passenger p2("P1", Date(10, 10, 1990), "ali@yahoo.com", "0334564334", payment("111-222-333-333", "card"));
 	trip *temp=p2.bookRide("A", "B");
-	//cout << *temp;
+	cout << *temp << endl;
 	// There is an error in printing pointer, maybe because of copy constructor
 
 	//cout<<*uberTrips[n-1];// will print this trip

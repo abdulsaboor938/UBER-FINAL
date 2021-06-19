@@ -21,7 +21,7 @@ ostream& operator<<(ostream& out, const passenger& D)
 
 trip* passenger::bookRide(const string& P, const string& D)
 {
-	trip temp(P, D, this, this->name);
-	curr_trip = &temp;
+	trip *temp=new trip(P, D, this, this->name);
+	curr_trip = temp;
 	return curr_trip;
 }
