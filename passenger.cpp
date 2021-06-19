@@ -1,6 +1,6 @@
 #include"passenger.h"
 
-passenger::passenger(const string& N, const Date& D, const string& E, const string& P, const payment& PY) :user(N, D, E, P), p1{ PY }, p2{ PY }, p3{ PY }, P_status{ false }, methods{ 1 }
+passenger::passenger(const string& N, const Date& D, const string& E, const string& P, const payment& PY) :user(N, D, E, P), p1{ PY }, p2{ PY }, p3{ PY }, methods{ 1 }
 {}
 
 ostream& operator<<(ostream& out, const passenger& D)
@@ -12,7 +12,7 @@ ostream& operator<<(ostream& out, const passenger& D)
 		cout << D.p2 << endl;
 	else if (D.methods == 3)
 		cout << D.p3 << endl;
-	if (D.P_status)
+	if (D.curr_trip)
 		cout << "Currently Riding" << endl;
 	else
 		cout << "Currently not Riding" << endl;
@@ -21,7 +21,27 @@ ostream& operator<<(ostream& out, const passenger& D)
 
 trip* passenger::bookRide(const string& P, const string& D)
 {
-	trip *temp=new trip(P, D, this, this->name);
-	curr_trip = temp;
-	return curr_trip;
+	if (curr_trip != nullptr){
+		cout << "\nCan not book two rides at once" << endl;
+		return nullptr;
+	}
+	else {
+		trip* temp = new trip(P, D, this, this->name);
+		curr_trip = temp;
+		return curr_trip;
+	}
+}
+
+void passenger::rateDriver(trip*& T, int R)
+{
+	if (T->get_status() != 2)
+	{
+		cout << "Error in Rating" << endl;
+		return;
+	}
+	else
+	{
+		T->rate_driver(R);
+		return;
+	}
 }

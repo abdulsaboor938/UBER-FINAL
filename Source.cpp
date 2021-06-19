@@ -10,22 +10,20 @@ using namespace std;
 #include"trip.h"
 
 
-const int SIZE=20;
-//an array of trips to keep pointers of all the trips of uber application
-//This array will keep data of all the trips ever created. 
-trip **uberTrips = new trip*[SIZE]; 
-int n=0;
+vector<trip*> uberTrips;
 
+int n = 0;
 void addToUberTrips(trip* t)// function to add new trips to uberTrips
 {
-	if(n<SIZE-1 && t!=nullptr)
+	if(t!=nullptr)
 	{
-		uberTrips[n++]= t;
+		uberTrips.push_back(t);
+		n++;
 	}
 } 
 void printUberTrips() //function to print uberTrips
 {
-	for(int i=0; i<n; i++)
+	for(int i=0; i<(int)uberTrips.size(); i++)
 	{
 		cout<<i<<" "<<*uberTrips[i]<<endl;
 	}
@@ -40,23 +38,20 @@ int main()
 	//cout<<*p1<<endl;
 	//cout<<*d1<<endl; 
 
-	//addToUberTrips( p1->bookRide("A", "B"));// will create a new trip and add it to uberTrips array
+	addToUberTrips( p1->bookRide("A", "B"));// will create a new trip and add it to uberTrips array
 
-	passenger p2("P1", Date(10, 10, 1990), "ali@yahoo.com", "0334564334", payment("111-222-333-333", "card"));
-	trip *temp=p2.bookRide("A", "B");
-	cout << *temp << endl;
-	// There is an error in printing pointer, maybe because of copy constructor
-
-	//cout<<*uberTrips[n-1];// will print this trip
-	/*addToUberTrips( p1->bookRide("C", "D"));//prints error as p1 has already booked a ride
+	cout<<*uberTrips[n-1];// will print this trip
+	addToUberTrips( p1->bookRide("C", "D"));//prints error as p1 has already booked a ride
+	cout << endl;
 	d1->pickARide(uberTrips[n-1]); //will assign  d1 to uberTrip[0], the status of this ride will also change to InProgress
+	cout << *uberTrips[n - 1];// will print this trip
 	d1->ratePassanger(uberTrips[n-1], 5); //error as the trip is not complete
 	p1->rateDriver(uberTrips[n-1],4); //error as the trip is not complete
 
 	cout<<*p1<<endl;
 	cout<<*d1<<endl; 
 	
-	d1->endARide(); //will change the status of uberTrip[0] to Complete
+	/*d1->endARide(); //will change the status of uberTrip[0] to Complete
 
 	d1->ratePassanger(uberTrips[n-1], 5); //error as the trip is not complete
 	p1->rateDriver(uberTrips[n-1],4); //error as the trip is not complete

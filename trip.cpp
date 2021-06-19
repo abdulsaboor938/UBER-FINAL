@@ -48,6 +48,14 @@ string trip::get_dropoff()
 {
 	return drop;
 }
+int trip:: get_status()
+{
+	return status;
+}
+trip* trip::get_ptr()
+{
+	return this;
+}
 
 ostream& operator<<(ostream& out, const trip& T)
 {

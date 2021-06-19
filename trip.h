@@ -38,6 +38,8 @@ public:
 
 	string get_pickup();
 	string get_dropoff();
+	int get_status();
+	trip* get_ptr();
 
 	friend ostream& operator<<(ostream&, const trip&);
 
