@@ -15,5 +15,7 @@ public:
 	void rateDriver(trip*&, int);
 	void cancelRide();
 	void R_comp();
+	void printTrips();
+	double getAvgRating();
 };
 #endif

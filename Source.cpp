@@ -34,7 +34,7 @@ int main()
 
 	passenger * p1= new passenger("P1", Date(10,10,1990), "ali@yahoo.com", "0334564334" ,payment("111-222-333-333", "card") );
 	driver *d1= new driver("D1", Date(16,1,1990), "ayesha@yahoo.com", "0357757585", "Lin1197717", "VIN9817917");
-	/*
+		
 	//////Test Case 1, user books, driver picks, driver ends (rating can be given only in this case)
 	//cout<<*p1<<endl;
 	//cout<<*d1<<endl; 
@@ -60,7 +60,7 @@ int main()
 	cout<<*p1<<endl;
 	cout<<*d1<<endl; 
 	d1->pickARide(uberTrips[n-1]);//prints error as the ride is completed
-	cout<<"-------------------------------------"<<endl;*/
+	cout<<"-------------------------------------"<<endl;
 	
 	//////Test case 2: user books, driver picks, user cancels, ratings are not applicable to cancelled ride
 	addToUberTrips(p1->bookRide("C", "D"));
@@ -75,14 +75,14 @@ int main()
 	p1->rateDriver(uberTrips[n-1], 5); //error as the ride was not complete
 	cout<<"-------------------------------------"<<endl;
 	
-	/*////Test Case 3: user Books, user Cancels, driver cannot pick this ride now, ratings are not applicable to this ride
+	////Test Case 3: user Books, user Cancels, driver cannot pick this ride now, ratings are not applicable to this ride
 	addToUberTrips(p1->bookRide("D", "E"));
 	p1->cancelRide();
 	d1->pickARide(uberTrips[n-1]); //error as this ride is not looking for driver
 	d1->ratePassanger(uberTrips[n-1], 5); //error as the ride was not complete
 	p1->rateDriver(uberTrips[n-1], 5); //error as the ride was not complete
 	cout<<"-------------------------------------"<<endl;
-
+	
 	////Test Case 4: getting avg ratings adn print trip funnction
 	//Adding some more test data
 	addToUberTrips( p1->bookRide("X", "Y"));
@@ -99,16 +99,17 @@ int main()
 	d1->ratePassanger(uberTrips[n-1], 3);// will upate the passanging rating from 4 to 3
 	p1->rateDriver(uberTrips[n-1],1);
 
+	system("cls");
 	p1->printTrips();
+	cout << "\n----------------------------\n\n";
 	d1->printTrips();
-	cout<<p1->getAvgRating();
-	cout<<d1->getAvgRating();
+	cout << p1->getAvgRating() << endl;
+	cout << d1->getAvgRating() << endl;
 	
 
 
 	
 
-	*/
 	system("PAUSE");
 	return 0;
 }

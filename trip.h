@@ -37,8 +37,10 @@ public:
 	string get_pickup();
 	string get_dropoff();
 	int get_status();
-	trip* get_ptr();
 	void trip_comp();
+
+	int get_Prating();
+	int get_Drating();
 
 	friend ostream& operator<<(ostream&, const trip&);
 

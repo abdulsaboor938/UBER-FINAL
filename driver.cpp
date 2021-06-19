@@ -33,7 +33,7 @@ void driver::pickARide(trip*& T)
 
 void driver::ratePassanger(trip*& T, int R)
 {
-	if (T->get_status() != 2)
+	if (T->get_status() != 2||R<0||R>5)
 	{
 		cout << "\nError in Rating\n" << endl;
 		return;
@@ -66,4 +66,25 @@ void driver::endARide()
 void driver::R_comp()
 {
 	curr_trip = nullptr;
+}
+
+void driver::printTrips()
+{
+	for (int i = 0; i < (int)Trips.size(); i++)
+		cout << *Trips[i] << endl;
+}
+
+double driver::getAvgRating()
+{
+	double rating = 0;
+	int rating_count = 0;
+	for (int i = 0; i < (int)Trips.size(); i++)
+	{
+		if (Trips[i]->get_status() == 2) {
+			rating += Trips[i]->get_Drating();
+			rating_count++;
+		}
+	}
+	rating /= rating_count;
+	return rating;
 }

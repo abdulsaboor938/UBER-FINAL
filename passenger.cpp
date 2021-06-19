@@ -35,7 +35,7 @@ trip* passenger::bookRide(const string& P, const string& D)
 
 void passenger::rateDriver(trip*& T, int R)
 {
-	if (T->get_status() != 2)
+	if (T->get_status() != 2||R<0||R>5)
 	{
 		cout << "\nError in Rating\n" << endl;
 		return;
@@ -68,4 +68,25 @@ string passenger::getName()
 void passenger::R_comp()
 {
 	curr_trip = nullptr;
+}
+
+void passenger::printTrips()
+{
+	for (int i = 0; i < (int)Trips.size(); i++)
+		cout << *Trips[i] << endl;
+}
+
+double passenger::getAvgRating()
+{
+	double rating = 0;
+	int rating_count = 0;
+	for (int i = 0; i < (int)Trips.size(); i++)
+	{
+		if (Trips[i]->get_status() == 2) {
+			rating += Trips[i]->get_Prating();
+			rating_count++;
+		}
+	}
+	rating /= rating_count;
+	return rating;
 }

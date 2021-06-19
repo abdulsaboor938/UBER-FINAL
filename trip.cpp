@@ -53,10 +53,6 @@ int trip:: get_status()
 {
 	return status;
 }
-trip* trip::get_ptr()
-{
-	return this;
-}
 
 ostream& operator<<(ostream& out, const trip& T)
 {
@@ -75,14 +71,27 @@ ostream& operator<<(ostream& out, const trip& T)
 	out << "Passenger name: " << T.Passenger->getName() << endl;
 	if (T.Driver)
 		out << "Driver name: " << T.Driver->getName() << endl;
-	out << "Passenger's rating: " << T.P_rating << endl;
-	out << "Driver's rating: " << T.D_rating << endl;
+	if (T.status == 2) {
+		out << "Passenger's rating: " << T.P_rating << endl;
+		out << "Driver's rating: " << T.D_rating << endl;
+	}
 
 	return out;
 }
 
 void trip::trip_comp()
 {
-	Passenger->R_comp();
-	Driver->R_comp();
+	if(Passenger)
+		Passenger->R_comp();
+	if(Driver)
+		Driver->R_comp();
+}
+
+int trip::get_Prating()
+{
+	return P_rating;
+}
+int trip::get_Drating()
+{
+	return D_rating;
 }

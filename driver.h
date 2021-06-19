@@ -14,5 +14,7 @@ public:
 	void endARide();
 	string getName();
 	void R_comp();
+	void printTrips();
+	double getAvgRating();
 };
 #endif
