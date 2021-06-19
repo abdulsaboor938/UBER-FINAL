@@ -13,5 +13,7 @@ public:
 	void pickARide(trip*&);
 	void ratePassanger(trip*&, int);
 	void endARide();
+	string getName();
+
 };
 #endif

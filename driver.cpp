@@ -27,7 +27,7 @@ void driver::pickARide(trip*& T)
 		Trips.push_back(T);
 		T->set_driver(this, this->name);
 		T->change_status(1);
-		curr_trip = T->get_ptr();
+		curr_trip = T;
 	}
 }
 
@@ -45,13 +45,18 @@ void driver::ratePassanger(trip*& T, int R)
 	}
 }
 
+string driver::getName()
+{
+	return name;
+}
+
 void driver::endARide()
 {
 	if (curr_trip)
 	{
 		curr_trip->change_status(2);
-		passenger* temp=curr_trip->get_passenger_ptr();
-		temp->comp_curr_trip();
+		//passenger* temp=curr_trip->get_passenger_ptr();
+		//temp->comp_curr_trip();
 		curr_trip = nullptr;
 	}
 }

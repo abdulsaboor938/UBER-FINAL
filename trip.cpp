@@ -1,6 +1,8 @@
 #include"trip.h"
+#include"driver.h"
+#include"passenger.h"
 
-trip::trip(const string& T, const string& D, passenger* P,const string& N) :status{ 0 }, T_date(), Driver{ nullptr }, pick{ T },drop{D},D_rating{0},P_rating{0},p_name{N}
+trip::trip(const string& T, const string& D, passenger* P) :status{ 0 }, T_date(), Driver{ nullptr }, pick{ T },drop{D},D_rating{0},P_rating{0}
 {
 	Passenger = P;
 	cout << "Trip constructor called" << endl;
@@ -37,14 +39,7 @@ void trip::set_dropoff(const string& x)
 void trip::set_driver(driver* x,const string& N)
 {
 	Driver = x;
-	d_name = N;
 }
-
-passenger* trip::get_passenger_ptr()
-{
-	return this->Passenger;
-}
-
 
 string trip::get_pickup()
 {
@@ -77,9 +72,9 @@ ostream& operator<<(ostream& out, const trip& T)
 	out <<"Date: "<< T.T_date << endl;
 	out << "Pick up location: " << T.pick << endl;
 	out << "Drop off location: " << T.drop << endl;
-	out << "Passenger name: " << T.p_name << endl;
+	out << "Passenger name: " << T.Passenger->getName() << endl;
 	if (T.Driver)
-		out << "Driver name: " << T.d_name << endl;
+		out << "Driver name: " << T.Driver->getName() << endl;
 	out << "Passenger's rating: " << T.P_rating << endl;
 	out << "Driver's rating: " << T.D_rating << endl;
 

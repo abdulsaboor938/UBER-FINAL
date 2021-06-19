@@ -26,7 +26,7 @@ trip* passenger::bookRide(const string& P, const string& D)
 		return nullptr;
 	}
 	else {
-		trip* temp = new trip(P, D, this, this->name);
+		trip* temp = new trip(P, D, this);
 		curr_trip = temp;
 		Trips.push_back(temp);
 		return curr_trip;
@@ -47,7 +47,20 @@ void passenger::rateDriver(trip*& T, int R)
 	}
 }
 
-void passenger::comp_curr_trip()
+void passenger::cancelRide()
+{/*
+	if (curr_trip)
+	{
+		curr_trip->change_status(3);
+		driver* temp = curr_trip->get_driver_ptr();
+	}
+	else
+	{
+		cout << "Error in cancelling this ride" << endl;
+	}*/
+}
+
+string passenger::getName()
 {
-	curr_trip = nullptr;
+	return name;
 }

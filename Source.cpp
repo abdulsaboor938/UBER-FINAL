@@ -2,11 +2,6 @@
 #include<vector>
 using namespace std;
 
-void funcx()
-{
-	cout << "Hello this works" << endl;
-}
-
 #include"date.h"
 //#include"user.h"
 #include"driver.h"
@@ -79,8 +74,8 @@ int main()
 	d1->ratePassanger(uberTrips[n-1], 5); //error as the ride was not complete
 	p1->rateDriver(uberTrips[n-1], 5); //error as the ride was not complete
 	cout<<"-------------------------------------"<<endl;
-
-	////Test Case 3: user Books, user Cancels, driver cannot pick this ride now, ratings are not applicable to this ride
+	*/
+	/*////Test Case 3: user Books, user Cancels, driver cannot pick this ride now, ratings are not applicable to this ride
 	addToUberTrips(p1->bookRide("D", "E"));
 	p1->cancelRide();
 	d1->pickARide(uberTrips[n-1]); //error as this ride is not looking for driver

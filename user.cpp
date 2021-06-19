@@ -28,3 +28,4 @@ void user::comp_curr_trip()
 {
 	curr_trip = nullptr;
 }
+
