@@ -17,5 +17,7 @@ public:
 	void R_comp();
 	void printTrips();
 	double getAvgRating();
+
+	~passenger();
 };
 #endif

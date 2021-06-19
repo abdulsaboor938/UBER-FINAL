@@ -90,3 +90,12 @@ double passenger::getAvgRating()
 	rating /= rating_count;
 	return rating;
 }
+
+passenger::~passenger()
+{
+	for (int i = 0; i < (int)Trips.size(); i++)
+	{
+		Trips[i]->rem_P();
+		Trips[i] = nullptr;
+	}
+}

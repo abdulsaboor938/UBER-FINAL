@@ -42,6 +42,9 @@ public:
 	int get_Prating();
 	int get_Drating();
 
+	void rem_P();
+	void rem_D();
+
 	friend ostream& operator<<(ostream&, const trip&);
 
 	trip operator=(trip&);

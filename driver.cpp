@@ -88,3 +88,12 @@ double driver::getAvgRating()
 	rating /= rating_count;
 	return rating;
 }
+
+driver::~driver()
+{
+	for (int i = 0; i < (int)Trips.size(); i++)
+	{
+		Trips[i]->rem_D();
+		Trips[i] = nullptr;
+	}
+}

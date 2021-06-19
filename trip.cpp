@@ -95,3 +95,12 @@ int trip::get_Drating()
 {
 	return D_rating;
 }
+
+void trip::rem_D()
+{
+	Driver = nullptr;
+}
+void trip::rem_P()
+{
+	Passenger = nullptr;
+}

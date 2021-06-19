@@ -106,8 +106,8 @@ int main()
 	cout << p1->getAvgRating() << endl;
 	cout << d1->getAvgRating() << endl;
 	
-
-
+	delete d1;
+	delete p1;
 	
 
 	system("PAUSE");
