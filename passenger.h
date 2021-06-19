@@ -12,5 +12,6 @@ public:
 	friend ostream& operator<<(ostream&, const passenger&);
 	trip* bookRide(const string&, const string&);
 	void rateDriver(trip*&, int);
+	void comp_curr_trip();
 };
 #endif

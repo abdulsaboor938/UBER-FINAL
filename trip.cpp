@@ -40,6 +40,12 @@ void trip::set_driver(driver* x,const string& N)
 	d_name = N;
 }
 
+passenger* trip::get_passenger_ptr()
+{
+	return this->Passenger;
+}
+
+
 string trip::get_pickup()
 {
 	return pick;

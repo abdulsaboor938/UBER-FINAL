@@ -28,5 +28,6 @@ public:
 	void change_name(const string&);
 	void change_DOB(const Date&);
 	void change_ph(const string&);
+	void comp_curr_trip();
 };
 #endif

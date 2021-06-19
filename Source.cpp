@@ -28,6 +28,7 @@ void printUberTrips() //function to print uberTrips
 		cout<<i<<" "<<*uberTrips[i]<<endl;
 	}
 } 
+
 int main()
 {
 
@@ -51,7 +52,7 @@ int main()
 	cout<<*p1<<endl;
 	cout<<*d1<<endl; 
 	
-	/*d1->endARide(); //will change the status of uberTrip[0] to Complete
+	d1->endARide(); //will change the status of uberTrip[0] to Complete
 
 	d1->ratePassanger(uberTrips[n-1], 5); //error as the trip is not complete
 	p1->rateDriver(uberTrips[n-1],4); //error as the trip is not complete
@@ -60,7 +61,7 @@ int main()
 	cout<<*d1<<endl; 
 	d1->pickARide(uberTrips[n-1]);//prints error as the ride is completed
 	cout<<"-------------------------------------"<<endl;
-
+	/*
 	//////Test case 2: user books, driver picks, user cancels, ratings are not applicable to cancelled ride
 	addToUberTrips(p1->bookRide("C", "D"));
 	d1->pickARide(uberTrips[n-1]); 

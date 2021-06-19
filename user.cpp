@@ -24,3 +24,7 @@ void user::change_ph(const string& P)
 {
 	ph_num = P;
 }
+void user::comp_curr_trip()
+{
+	curr_trip = nullptr;
+}

@@ -43,3 +43,14 @@ void driver::ratePassanger(trip*& T, int R)
 		return;
 	}
 }
+
+void driver::endARide()
+{
+	if (curr_trip)
+	{
+		curr_trip->change_status(2);
+		passenger* temp=curr_trip->get_passenger_ptr();
+		temp->comp_curr_trip();
+		curr_trip = nullptr;
+	}
+}

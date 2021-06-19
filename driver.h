@@ -1,4 +1,5 @@
 #include"user.h"
+#include"passenger.h"
 
 #ifndef DRIVER_H
 #define DRIVER_H

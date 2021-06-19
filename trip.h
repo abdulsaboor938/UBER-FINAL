@@ -35,6 +35,7 @@ public:
 	void set_pickup(const string&);
 	void set_dropoff(const string&);
 	void set_driver(driver*,const string&);
+	passenger* get_passenger_ptr();
 
 	string get_pickup();
 	string get_dropoff();

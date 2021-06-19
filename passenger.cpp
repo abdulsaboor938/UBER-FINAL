@@ -45,3 +45,8 @@ void passenger::rateDriver(trip*& T, int R)
 		return;
 	}
 }
+
+void passenger::comp_curr_trip()
+{
+	curr_trip = nullptr;
+}
