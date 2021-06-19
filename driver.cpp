@@ -35,7 +35,7 @@ void driver::ratePassanger(trip*& T, int R)
 {
 	if (T->get_status() != 2)
 	{
-		cout << "Error in Rating" << endl;
+		cout << "\nError in Rating\n" << endl;
 		return;
 	}
 	else
@@ -55,8 +55,15 @@ void driver::endARide()
 	if (curr_trip)
 	{
 		curr_trip->change_status(2);
-		//passenger* temp=curr_trip->get_passenger_ptr();
-		//temp->comp_curr_trip();
-		curr_trip = nullptr;
+		curr_trip->trip_comp();
 	}
+	else
+	{
+		cout << "\nError in completing this ride\n\n";
+	}
+}
+
+void driver::R_comp()
+{
+	curr_trip = nullptr;
 }

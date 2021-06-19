@@ -1,5 +1,4 @@
 #include"user.h"
-#include "passenger.h"
 
 #ifndef DRIVER_H
 #define DRIVER_H
@@ -14,6 +13,6 @@ public:
 	void ratePassanger(trip*&, int);
 	void endARide();
 	string getName();
-
+	void R_comp();
 };
 #endif

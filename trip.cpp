@@ -80,3 +80,9 @@ ostream& operator<<(ostream& out, const trip& T)
 
 	return out;
 }
+
+void trip::trip_comp()
+{
+	Passenger->R_comp();
+	Driver->R_comp();
+}

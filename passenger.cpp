@@ -7,11 +7,11 @@ ostream& operator<<(ostream& out, const passenger& D)
 {
 	D.print();
 	if (D.methods == 1)
-		cout << D.p1 << endl;
+		cout << D.p1;
 	else if (D.methods == 2)
-		cout << D.p2 << endl;
+		cout << D.p2;
 	else if (D.methods == 3)
-		cout << D.p3 << endl;
+		cout << D.p3;
 	if (D.curr_trip)
 		cout << "Currently Riding" << endl;
 	else
@@ -37,7 +37,7 @@ void passenger::rateDriver(trip*& T, int R)
 {
 	if (T->get_status() != 2)
 	{
-		cout << "Error in Rating" << endl;
+		cout << "\nError in Rating\n" << endl;
 		return;
 	}
 	else
@@ -48,19 +48,24 @@ void passenger::rateDriver(trip*& T, int R)
 }
 
 void passenger::cancelRide()
-{/*
+{
 	if (curr_trip)
 	{
 		curr_trip->change_status(3);
-		driver* temp = curr_trip->get_driver_ptr();
+		curr_trip->trip_comp();
 	}
 	else
 	{
-		cout << "Error in cancelling this ride" << endl;
-	}*/
+		cout << "\nError in cancelling this ride\n\n";
+	}
 }
 
 string passenger::getName()
 {
 	return name;
+}
+
+void passenger::R_comp()
+{
+	curr_trip = nullptr;
 }

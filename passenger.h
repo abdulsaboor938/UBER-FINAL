@@ -10,10 +10,10 @@ class passenger :protected user
 public:
 	passenger(const string&, const Date&, const string&, const string&,const payment&);
 	friend ostream& operator<<(ostream&, const passenger&);
+	string getName();
 	trip* bookRide(const string&, const string&);
 	void rateDriver(trip*&, int);
 	void cancelRide();
-	string getName();
-
+	void R_comp();
 };
 #endif
