@@ -43,7 +43,8 @@ void printAllUsers()
 	for (int i = 0; i < (int)allUsers.size(); i++)
 	{
 		cout << "User " << i + 1 << ": " << endl;
-		allUsers[i]->printu();
+		//allUsers[i]->printu();
+		cout << *(allUsers[i]);
 		cout << "----------------------------------------------\n\n";
 	}
 }

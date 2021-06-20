@@ -34,3 +34,9 @@ void user::printTrips()
 	for (int i = 0; i < (int)Trips.size(); i++)
 		cout << *Trips[i] << endl;
 }
+
+ostream& operator<<(ostream& out, user& U)
+{
+	U.printu();
+	return out;
+}

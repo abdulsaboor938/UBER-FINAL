@@ -19,6 +19,7 @@ protected:
 	trip *curr_trip;
 	user(const string&, const Date&, const string&, const string&);
 	void print()const;
+	virtual void printu() = 0;
 	//copy constructors
 	//stream overload operators
 	//getters and setters
@@ -30,9 +31,9 @@ public:
 	void change_ph(const string&);
 	void comp_curr_trip();
 	void printTrips();
-	virtual void printu() = 0;
 	//copy constructor is not available as one user can not be copied to another
 
 	virtual double getAvgRating() = 0;
+	friend ostream& operator<<(ostream&, user&);
 };
 #endif
