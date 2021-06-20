@@ -19,6 +19,9 @@ public:
 	void printu();
 	void printTrips();
 
+	void addPayment(const string&, const string&);
+	void deletePayment();
+
 	~passenger();
 
 	friend ostream& operator<<(ostream&, const passenger&);

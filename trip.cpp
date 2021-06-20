@@ -5,7 +5,6 @@
 trip::trip(const string& T, const string& D, passenger* P) :status{ 0 }, T_date(), Driver{ nullptr }, pick{ T },drop{D},D_rating{0},P_rating{0}
 {
 	Passenger = P;
-	cout << "Trip constructor called" << endl;
 }
 
 trip trip::operator=(trip& T)

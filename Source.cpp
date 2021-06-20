@@ -1,3 +1,11 @@
+/*
+TODO
+	do we need to make all functions virtual
+	dynamic cast
+	general getter setter and copy constructors
+	is the way add users implemented correct?
+*/
+
 #include<iostream>
 #include<vector>
 #include<fstream>
@@ -158,9 +166,6 @@ driver* hr_driver()
 
 int main()
 {
-	read_file("input.txt");
-
-	printAllUsers();
 	/*
 	driver *d1= new driver("D1", Date(16,1,1990), "ayesha@yahoo.com", "0357757585", "Lin1197717", "VIN9817917");
 	passenger* p1 = new passenger("P1", Date(10, 10, 1990), "ali@yahoo.com", "0334564334", payment("111-222-333-333", "card"));
@@ -251,7 +256,13 @@ int main()
 	//cout << hr_driver()->getAvgRating() << endl;
 	//cout << *(hr_passenger()) << endl;
 	//cout << hr_passenger()->getAvgRating() << endl;*/ 
+
+	// Module 3 Testing
+	read_file("input.txt");
+	printAllUsers();
+
 	
+
 
 	system("PAUSE");
 	return 0;

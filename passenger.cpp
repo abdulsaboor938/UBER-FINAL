@@ -99,3 +99,22 @@ ostream& operator<<(ostream& out, const passenger& D)
 		cout << "Currently not Riding" << endl;
 	return out;
 }
+
+void passenger::addPayment(const string& card, const string& mode)
+{
+	if (p_methods.size() < 3)
+	{
+		p_methods.push_back(payment(card, mode));
+	}
+	else
+	{
+		cout << "Error adding paymnet method\n\n";
+	}
+}
+void passenger::deletePayment()
+{
+	for (int i = 0; i < (int)p_methods.size(); i++)
+	{
+		p_methods.clear();
+	}
+}
