@@ -14,8 +14,8 @@ public:
 	void endARide();
 	string getName();
 	void R_comp(); // ride complete is to null current trip
-	void printTrips();
-	double getAvgRating();
+	virtual double getAvgRating();
+	void printu();
 
 	~driver();
 

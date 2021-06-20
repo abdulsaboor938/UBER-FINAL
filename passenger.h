@@ -15,8 +15,8 @@ public:
 	void rateDriver(trip*&, int);
 	void cancelRide();
 	void R_comp(); // to mark current trip as nullptr
-	void printTrips();
-	double getAvgRating();
+	virtual double getAvgRating();
+	void printu();
 
 	~passenger();
 

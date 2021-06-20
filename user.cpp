@@ -29,3 +29,8 @@ void user::comp_curr_trip()
 	curr_trip = nullptr;
 }
 
+void user::printTrips()
+{
+	for (int i = 0; i < (int)Trips.size(); i++)
+		cout << *Trips[i] << endl;
+}

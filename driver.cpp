@@ -1,7 +1,10 @@
 #include"driver.h"
+#include"Source.h"
 
 driver::driver(const string& N, const Date& D, const string& E, const string& P, const string& L, const string& V) :user(N, D, E, P), lic_num{ L }, veh_num{ V }
-{}
+{
+	addToAllUsers(this); // to automatically add newly created user to allUsers array
+}
 
 void driver::pickARide(trip*& T)
 {
@@ -50,11 +53,6 @@ void driver::R_comp()
 {
 	curr_trip = nullptr;
 }
-void driver::printTrips()
-{
-	for (int i = 0; i < (int)Trips.size(); i++)
-		cout << *Trips[i] << endl;
-}
 double driver::getAvgRating()
 {
 	double rating = 0;
@@ -68,6 +66,10 @@ double driver::getAvgRating()
 	}
 	rating /= rating_count;
 	return rating;
+}
+void driver::printu()
+{
+	cout << *this;
 }
 
 driver::~driver()

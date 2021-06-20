@@ -152,6 +152,7 @@
     <ClInclude Include="driver.h" />
     <ClInclude Include="passenger.h" />
     <ClInclude Include="payment.h" />
+    <ClInclude Include="Source.h" />
     <ClInclude Include="trip.h" />
     <ClInclude Include="user.h" />
   </ItemGroup>

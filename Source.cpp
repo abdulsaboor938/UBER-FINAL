@@ -11,6 +11,7 @@ using namespace std;
 
 
 vector<trip*> uberTrips;
+vector<user*> allUsers;
 
 int n = 0;
 void addToUberTrips(trip* t)// function to add new trips to uberTrips
@@ -29,12 +30,31 @@ void printUberTrips() //function to print uberTrips
 	}
 } 
 
+void addToAllUsers(user* U)// function to add new trips to uberTrips
+{
+	if (U != nullptr)
+	{
+		allUsers.push_back(U);
+	}
+}
+
+void printAllUsers()
+{
+	for (int i = 0; i < (int)allUsers.size(); i++)
+	{
+		cout << "User " << i + 1 << ": " << endl;
+		allUsers[i]->printu();
+		cout << "----------------------------------------------\n\n";
+	}
+}
+
 int main()
 {
-/*
-	passenger * p1= new passenger("P1", Date(10,10,1990), "ali@yahoo.com", "0334564334" ,payment("111-222-333-333", "card") );
+
 	driver *d1= new driver("D1", Date(16,1,1990), "ayesha@yahoo.com", "0357757585", "Lin1197717", "VIN9817917");
-		
+	passenger* p1 = new passenger("P1", Date(10, 10, 1990), "ali@yahoo.com", "0334564334", payment("111-222-333-333", "card"));
+	printAllUsers();
+	/*
 	//////Test Case 1, user books, driver picks, driver ends (rating can be given only in this case)
 	//cout<<*p1<<endl;
 	//cout<<*d1<<endl; 

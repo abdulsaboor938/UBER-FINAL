@@ -1,8 +1,10 @@
 #include"passenger.h"
+#include"Source.h"
 
 passenger::passenger(const string& N, const Date& D, const string& E, const string& P, const payment& PY) :user(N, D, E, P)
 {
 	p_methods.push_back(PY);
+	addToAllUsers(this); // to automatically add newly created user to allUsers array
 }
 
 trip* passenger::bookRide(const string& P, const string& D)
@@ -51,11 +53,6 @@ void passenger::R_comp()
 {
 	curr_trip = nullptr;
 }
-void passenger::printTrips()
-{
-	for (int i = 0; i < (int)Trips.size(); i++)
-		cout << *Trips[i] << endl;
-}
 double passenger::getAvgRating()
 {
 	double rating = 0;
@@ -78,6 +75,11 @@ passenger::~passenger()
 		Trips[i]->rem_P();
 		Trips[i] = nullptr;
 	}
+}
+
+void passenger::printu()
+{
+	cout << *this;
 }
 
 ostream& operator<<(ostream& out, const passenger& D)
