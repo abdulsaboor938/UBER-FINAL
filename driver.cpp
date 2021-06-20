@@ -3,19 +3,6 @@
 driver::driver(const string& N, const Date& D, const string& E, const string& P, const string& L, const string& V) :user(N, D, E, P), lic_num{ L }, veh_num{ V }
 {}
 
-ostream& operator<<(ostream& out, const driver& D)
-{
-	D.print();
-	cout << D.lic_num << endl;
-	cout << D.veh_num << endl;
-	if (D.curr_trip)
-		cout << "Currently Driving" << endl;
-	else
-		cout << "Currently not Driving" << endl;
-
-	return out;
-}
-
 void driver::pickARide(trip*& T)
 {
 	if (T->get_status() != 0) {
@@ -30,7 +17,6 @@ void driver::pickARide(trip*& T)
 		curr_trip = T;
 	}
 }
-
 void driver::ratePassanger(trip*& T, int R)
 {
 	if (T->get_status() != 2||R<0||R>5)
@@ -44,12 +30,10 @@ void driver::ratePassanger(trip*& T, int R)
 		return;
 	}
 }
-
 string driver::getName()
 {
 	return name;
 }
-
 void driver::endARide()
 {
 	if (curr_trip)
@@ -62,18 +46,15 @@ void driver::endARide()
 		cout << "\nError in completing this ride\n\n";
 	}
 }
-
 void driver::R_comp()
 {
 	curr_trip = nullptr;
 }
-
 void driver::printTrips()
 {
 	for (int i = 0; i < (int)Trips.size(); i++)
 		cout << *Trips[i] << endl;
 }
-
 double driver::getAvgRating()
 {
 	double rating = 0;
@@ -96,4 +77,17 @@ driver::~driver()
 		Trips[i]->rem_D();
 		Trips[i] = nullptr;
 	}
+}
+
+ostream& operator<<(ostream& out, const driver& D)
+{
+	D.print();
+	cout << D.lic_num << endl;
+	cout << D.veh_num << endl;
+	if (D.curr_trip)
+		cout << "Currently Driving" << endl;
+	else
+		cout << "Currently not Driving" << endl;
+
+	return out;
 }

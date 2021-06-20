@@ -8,15 +8,17 @@ class driver :protected user
 	string veh_num;
 public:
 	driver(const string&, const Date&, const string&, const string&, const string&, const string&);
-	friend ostream& operator<<(ostream&, const driver&);
+	
 	void pickARide(trip*&);
 	void ratePassanger(trip*&, int);
 	void endARide();
 	string getName();
-	void R_comp();
+	void R_comp(); // ride complete is to null current trip
 	void printTrips();
 	double getAvgRating();
 
 	~driver();
+
+	friend ostream& operator<<(ostream&, const driver&);
 };
 #endif

@@ -29,5 +29,8 @@ public:
 	void change_DOB(const Date&);
 	void change_ph(const string&);
 	void comp_curr_trip();
+	//copy constructor is not available as one user can not be copied to another
+
+	virtual double getAvgRating() = 0;
 };
 #endif

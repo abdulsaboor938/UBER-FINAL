@@ -31,7 +31,7 @@ void printUberTrips() //function to print uberTrips
 
 int main()
 {
-
+/*
 	passenger * p1= new passenger("P1", Date(10,10,1990), "ali@yahoo.com", "0334564334" ,payment("111-222-333-333", "card") );
 	driver *d1= new driver("D1", Date(16,1,1990), "ayesha@yahoo.com", "0357757585", "Lin1197717", "VIN9817917");
 		
@@ -107,7 +107,7 @@ int main()
 	cout << d1->getAvgRating() << endl;
 	
 	delete d1;
-	delete p1;
+	delete p1;*/
 	
 
 	system("PAUSE");

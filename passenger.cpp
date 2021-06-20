@@ -1,22 +1,8 @@
 #include"passenger.h"
 
-passenger::passenger(const string& N, const Date& D, const string& E, const string& P, const payment& PY) :user(N, D, E, P), p1{ PY }, p2{ PY }, p3{ PY }, methods{ 1 }
-{}
-
-ostream& operator<<(ostream& out, const passenger& D)
+passenger::passenger(const string& N, const Date& D, const string& E, const string& P, const payment& PY) :user(N, D, E, P)
 {
-	D.print();
-	if (D.methods == 1)
-		cout << D.p1;
-	else if (D.methods == 2)
-		cout << D.p2;
-	else if (D.methods == 3)
-		cout << D.p3;
-	if (D.curr_trip)
-		cout << "Currently Riding" << endl;
-	else
-		cout << "Currently not Riding" << endl;
-	return out;
+	p_methods.push_back(PY);
 }
 
 trip* passenger::bookRide(const string& P, const string& D)
@@ -32,7 +18,6 @@ trip* passenger::bookRide(const string& P, const string& D)
 		return curr_trip;
 	}
 }
-
 void passenger::rateDriver(trip*& T, int R)
 {
 	if (T->get_status() != 2||R<0||R>5)
@@ -46,7 +31,6 @@ void passenger::rateDriver(trip*& T, int R)
 		return;
 	}
 }
-
 void passenger::cancelRide()
 {
 	if (curr_trip)
@@ -59,23 +43,19 @@ void passenger::cancelRide()
 		cout << "\nError in cancelling this ride\n\n";
 	}
 }
-
 string passenger::getName()
 {
 	return name;
 }
-
 void passenger::R_comp()
 {
 	curr_trip = nullptr;
 }
-
 void passenger::printTrips()
 {
 	for (int i = 0; i < (int)Trips.size(); i++)
 		cout << *Trips[i] << endl;
 }
-
 double passenger::getAvgRating()
 {
 	double rating = 0;
@@ -98,4 +78,18 @@ passenger::~passenger()
 		Trips[i]->rem_P();
 		Trips[i] = nullptr;
 	}
+}
+
+ostream& operator<<(ostream& out, const passenger& D)
+{
+	D.print();
+	for (int i = 0; i < (int)D.p_methods.size(); i++)
+	{
+		cout << D.p_methods[i] << endl;
+	}
+	if (D.curr_trip)
+		cout << "Currently Riding" << endl;
+	else
+		cout << "Currently not Riding" << endl;
+	return out;
 }
