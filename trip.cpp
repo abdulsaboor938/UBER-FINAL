@@ -17,15 +17,26 @@ trip trip::operator=(trip& T)
 void trip::change_status(const int& x)
 {
 	status = x;
+	if (status == 0)
+		cout << Passenger->getName() << " books a ride\n\n";
+	else if (status == 1)
+		cout << Driver->getName() << " picks " << Passenger->getName() << "'s ride\n\n";
+	else if (status == 2)
+		cout << Driver->getName() << " completes the ride\n\n";
+	else if (status == 3)
+		cout << Passenger->getName() << " cancels the ride\n\n";
 }
 
 void trip::rate_driver(const int& x)
 {
 	D_rating = x;
+	cout << Passenger->getName() << " rates " << Driver->getName() << " " << x << "\n\n";
 }
 void trip::rate_passenger(const int& x)
 {
 	P_rating = x;
+	cout << Driver->getName() << " rates " << Passenger->getName() << " " << x << "\n\n";
+
 }
 
 void trip::set_pickup(const string& x)

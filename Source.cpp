@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<fstream>
 using namespace std;
 
 #include"date.h"
@@ -37,7 +38,6 @@ void addToAllUsers(user* U)// function to add new trips to uberTrips
 		allUsers.push_back(U);
 	}
 }
-
 void printAllUsers()
 {
 	for (int i = 0; i < (int)allUsers.size(); i++)
@@ -46,6 +46,62 @@ void printAllUsers()
 		cout << *(allUsers[i]);
 		cout << "----------------------------------------------\n\n";
 	}
+}
+
+void read_file(const char* D)
+{
+	char status;
+	string name;
+	string email;
+	string ph;
+	int day, month, year;
+	ifstream inFile;
+	inFile.open(D, ios::in);
+	while (!inFile.eof())
+	{
+		int dc = 0;
+		char arr[100];
+		inFile.getline(arr, 100, ',');
+		status = arr[0];
+		inFile.getline(arr, 100,',');
+		name = arr;
+		inFile.getline(arr, 100, ',');
+		day = (int)arr[dc++]-48;
+		if (arr[dc] != '-') {
+			day *= 10;
+			day += (int)arr[dc++] - 48;
+		}
+		dc++;
+		month = (int)arr[dc++] - 48;
+		if (arr[dc] != '-') {
+			month *= 10;
+			month += (int)arr[dc++] - 48;
+		}
+		dc++;
+		year = (int)arr[dc++] - 48;
+		year *= 10;
+		year += (int)arr[dc++] - 48;
+		year *= 10;
+		year += (int)arr[dc++] - 48;
+		year *= 10;
+		year += (int)arr[dc++] - 48;
+		inFile.getline(arr, 100, ',');
+		email = arr;
+		inFile.getline(arr, 100, '\n');
+		ph = arr;
+		
+		string null = "";
+		if (status == 'p')
+		{
+			new passenger(name, Date(day, month, year), email, ph, payment(null,null));
+		}
+		else if (status == 'd')
+		{
+			new driver(name, Date(day, month, year), email, ph,null,null);
+		}
+
+	}
+	inFile.close();
 }
 
 user* hr_user()
@@ -63,7 +119,6 @@ user* hr_user()
 	}
 	return allUsers[c];
 }
-
 passenger* hr_passenger()
 {
 	passenger* p;
@@ -81,7 +136,6 @@ passenger* hr_passenger()
 	}
 	return (dynamic_cast<passenger*>(allUsers[c]));
 }
-
 driver* hr_driver()
 {
 	driver* d;
@@ -104,9 +158,16 @@ driver* hr_driver()
 
 int main()
 {
-	
+	read_file("input.txt");
+
+	printAllUsers();
+	/*
 	driver *d1= new driver("D1", Date(16,1,1990), "ayesha@yahoo.com", "0357757585", "Lin1197717", "VIN9817917");
 	passenger* p1 = new passenger("P1", Date(10, 10, 1990), "ali@yahoo.com", "0334564334", payment("111-222-333-333", "card"));
+	
+	cout << *(hr_user()) << endl;
+	cout << hr_user()->getAvgRating() << endl;
+
 	
 	//////Test Case 1, user books, driver picks, driver ends (rating can be given only in this case)
 	//cout<<*p1<<endl;
@@ -186,11 +247,11 @@ int main()
 	printAllUsers();
 	cout << *(hr_user()) << endl;
 	cout <<hr_user()->getAvgRating() << endl;
-	cout << *(hr_driver()) << endl;
-	cout << hr_driver()->getAvgRating() << endl;
+	//cout << *(hr_driver()) << endl;
+	//cout << hr_driver()->getAvgRating() << endl;
 	//cout << *(hr_passenger()) << endl;
-	//cout << hr_passenger()->getAvgRating() << endl;
-
+	//cout << hr_passenger()->getAvgRating() << endl;*/ 
+	
 
 	system("PAUSE");
 	return 0;

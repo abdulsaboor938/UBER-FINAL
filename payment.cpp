@@ -8,6 +8,6 @@ payment::payment(const string& M) : card_num{"" }, mode{ M }
 
 ostream& operator<<(ostream& out, const payment& P)
 {
-	cout << P.card_num << "," << P.mode;
+	cout << P.card_num << endl << P.mode;
 	return out;
 }
