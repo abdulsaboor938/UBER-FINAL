@@ -1,7 +1,7 @@
 /*
 TODO
 	do we need to make all functions virtual
-	dynamic cast
+	dynamic cast or make a signal inside user to indicate
 	general getter setter and copy constructors
 	is the way add users implemented correct?
 */
