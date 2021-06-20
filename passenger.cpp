@@ -76,8 +76,11 @@ passenger::~passenger()
 {
 	for (int i = 0; i < (int)Trips.size(); i++)
 	{
-		Trips[i]->rem_P();
-		Trips[i] = nullptr;
+		if (Trips[i] > 0) {
+			Trips[i]->rem_P();
+			Trips[i] = nullptr;
+		}
+		Trips.clear();
 	}
 }
 

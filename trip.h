@@ -51,5 +51,6 @@ public:
 
 	friend class passenger;
 	friend class driver;
+
 };
 #endif

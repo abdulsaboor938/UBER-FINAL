@@ -1,5 +1,6 @@
 /*
 TODO
+	trip destructor & destructors
 	do we need to make all functions virtual
 	dynamic cast or make a signal inside user to indicate
 	general getter setter and copy constructors
@@ -55,7 +56,6 @@ void printAllUsers()
 		cout << "----------------------------------------------\n\n";
 	}
 }
-
 void read_file(const char* D)
 {
 	char status;
@@ -127,24 +127,24 @@ user* hr_user()
 	}
 	return allUsers[c];
 }
-passenger* hr_passenger()
+user* hr_passenger()
 {
 	passenger* p;
-	double max = -1, rating;
+	double max = 0, rating;
 	int c = 0;
 	for (int i = 0; i < (int)allUsers.size(); i++)
 	{
 		rating = allUsers[i]->getAvgRating();
 		p = dynamic_cast<passenger*>(allUsers[i]);
-		if (p!=nullptr && rating > max)
+		if (p==nullptr && rating > max) // dynamic cast only working on one child and not other that's why it is made equal
 		{
 			max = rating;
-			c = i;
+			c = 1;
 		}
 	}
-	return (dynamic_cast<passenger*>(allUsers[c]));
+	return allUsers[c];
 }
-driver* hr_driver()
+user* hr_driver()
 {
 	driver* d;
 	double max = -1, rating=0;
@@ -159,21 +159,23 @@ driver* hr_driver()
 			c = i;
 		}
 	}
-	d = dynamic_cast<driver*>(allUsers[c]);
-	return d;
+	return allUsers[c];
 }
-
+void user_des(const user* U)
+{
+	for (int i = 0; i < (int)allUsers.size(); i++)
+	{
+		if (allUsers[i] == U)
+			allUsers.erase(allUsers.begin() + i);
+	}
+}
 
 int main()
 {
-	/*
+	
 	driver *d1= new driver("D1", Date(16,1,1990), "ayesha@yahoo.com", "0357757585", "Lin1197717", "VIN9817917");
 	passenger* p1 = new passenger("P1", Date(10, 10, 1990), "ali@yahoo.com", "0334564334", payment("111-222-333-333", "card"));
-	
-	cout << *(hr_user()) << endl;
-	cout << hr_user()->getAvgRating() << endl;
-
-	
+		
 	//////Test Case 1, user books, driver picks, driver ends (rating can be given only in this case)
 	//cout<<*p1<<endl;
 	//cout<<*d1<<endl; 
@@ -238,30 +240,41 @@ int main()
 	d1->ratePassanger(uberTrips[n-1], 3);// will upate the passanging rating from 4 to 3
 	p1->rateDriver(uberTrips[n-1],1);
 
-	system("cls");
 	p1->printTrips();
 	cout << "\n----------------------------\n\n";
 	d1->printTrips();
 	cout << p1->getAvgRating() << endl;
 	cout << d1->getAvgRating() << endl;
-	
-	//delete d1;
-	//delete p1;
-	
-	system("cls");
+		
 	printAllUsers();
 	cout << *(hr_user()) << endl;
 	cout <<hr_user()->getAvgRating() << endl;
-	//cout << *(hr_driver()) << endl;
-	//cout << hr_driver()->getAvgRating() << endl;
-	//cout << *(hr_passenger()) << endl;
-	//cout << hr_passenger()->getAvgRating() << endl;*/ 
+	cout << "---------------\n\n";
+	cout << *(hr_driver()) << endl;
+	cout << hr_driver()->getAvgRating() << endl;
+	cout << "---------------\n\n";
+	cout << *(hr_passenger()) << endl;
+	cout << hr_passenger()->getAvgRating() << endl;
 
-	// Module 3 Testing
+	for (int i = 0; i < (int)uberTrips.size(); i++)
+	{
+		if(uberTrips[i]>0)
+			delete uberTrips[i];
+	}
+	uberTrips.clear();
+
+	system("cls");
 	read_file("input.txt");
-	printAllUsers();
 
-	
+	delete p1;
+	delete d1;
+
+	for (int i = 0; i < (int)allUsers.size(); i++)
+	{
+		if(allUsers[i]>0)
+			delete allUsers[i];
+	}
+	allUsers.clear();
 
 
 	system("PAUSE");

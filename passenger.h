@@ -18,6 +18,7 @@ public:
 	virtual double getAvgRating();
 	void printu();
 	void printTrips();
+	void trip_des(trip*);
 
 	void addPayment(const string&, const string&);
 	void deletePayment();

@@ -1,4 +1,5 @@
 #include"user.h"
+#include"Source.h"
 
 user::user(const string& N, const Date& D, const string& E, const string& P) :name{ N }, DOB{ D }, email{ E }, ph_num{ P },curr_trip{nullptr}
 {}
@@ -35,8 +36,22 @@ void user::printTrips()
 		cout << *Trips[i] << endl;
 }
 
+void user::trip_des(trip* T)
+{
+	for (int i = 0; i < (int)Trips.size(); i++)
+	{
+		if (Trips[i] == T)
+			Trips.erase(Trips.begin() + i);
+	}
+}
+
 ostream& operator<<(ostream& out, user& U)
 {
 	U.printu();
 	return out;
+}
+
+user::~user()
+{
+	user_des(this);
 }

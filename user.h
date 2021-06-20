@@ -31,9 +31,13 @@ public:
 	void change_ph(const string&);
 	void comp_curr_trip();
 	void printTrips();
+	void trip_des(trip*);
 	//copy constructor is not available as one user can not be copied to another
 
 	virtual double getAvgRating() = 0;
 	friend ostream& operator<<(ostream&, user&);
+
+
+	~user();
 };
 #endif
