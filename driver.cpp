@@ -71,6 +71,10 @@ void driver::printu()
 {
 	cout << *this;
 }
+void driver::printTrips()
+{
+	user::printTrips();
+}
 
 driver::~driver()
 {

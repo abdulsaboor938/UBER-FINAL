@@ -17,6 +17,7 @@ public:
 	void R_comp(); // to mark current trip as nullptr
 	virtual double getAvgRating();
 	void printu();
+	void printTrips();
 
 	~passenger();
 

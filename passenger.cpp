@@ -67,6 +67,10 @@ double passenger::getAvgRating()
 	rating /= rating_count;
 	return rating;
 }
+void passenger::printTrips()
+{
+	user::printTrips();
+}
 
 passenger::~passenger()
 {

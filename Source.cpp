@@ -43,19 +43,71 @@ void printAllUsers()
 	for (int i = 0; i < (int)allUsers.size(); i++)
 	{
 		cout << "User " << i + 1 << ": " << endl;
-		//allUsers[i]->printu();
 		cout << *(allUsers[i]);
 		cout << "----------------------------------------------\n\n";
 	}
 }
 
+user* hr_user()
+{
+	double max=-1, rating;
+	int c = 0;
+	for (int i = 0; i < (int)allUsers.size(); i++)
+	{
+		rating = allUsers[i]->getAvgRating();
+		if (rating > max)
+		{
+			max = rating;
+			c = i;
+		}
+	}
+	return allUsers[c];
+}
+
+passenger* hr_passenger()
+{
+	passenger* p;
+	double max = -1, rating;
+	int c = 0;
+	for (int i = 0; i < (int)allUsers.size(); i++)
+	{
+		rating = allUsers[i]->getAvgRating();
+		p = dynamic_cast<passenger*>(allUsers[i]);
+		if (p!=nullptr && rating > max)
+		{
+			max = rating;
+			c = i;
+		}
+	}
+	return (dynamic_cast<passenger*>(allUsers[c]));
+}
+
+driver* hr_driver()
+{
+	driver* d;
+	double max = -1, rating=0;
+	int c = 0;
+	for (int i = 0; i < (int)allUsers.size(); i++)
+	{
+		rating = allUsers[i]->getAvgRating();
+		d = dynamic_cast<driver*>(allUsers[i]);
+		if (d != nullptr && rating > max)
+		{
+			max = rating;
+			c = i;
+		}
+	}
+	d = dynamic_cast<driver*>(allUsers[c]);
+	return d;
+}
+
+
 int main()
 {
-
+	
 	driver *d1= new driver("D1", Date(16,1,1990), "ayesha@yahoo.com", "0357757585", "Lin1197717", "VIN9817917");
 	passenger* p1 = new passenger("P1", Date(10, 10, 1990), "ali@yahoo.com", "0334564334", payment("111-222-333-333", "card"));
-	printAllUsers();
-	/*
+	
 	//////Test Case 1, user books, driver picks, driver ends (rating can be given only in this case)
 	//cout<<*p1<<endl;
 	//cout<<*d1<<endl; 
@@ -127,9 +179,18 @@ int main()
 	cout << p1->getAvgRating() << endl;
 	cout << d1->getAvgRating() << endl;
 	
-	delete d1;
-	delete p1;*/
+	//delete d1;
+	//delete p1;
 	
+	system("cls");
+	printAllUsers();
+	cout << *(hr_user()) << endl;
+	cout <<hr_user()->getAvgRating() << endl;
+	cout << *(hr_driver()) << endl;
+	cout << hr_driver()->getAvgRating() << endl;
+	//cout << *(hr_passenger()) << endl;
+	//cout << hr_passenger()->getAvgRating() << endl;
+
 
 	system("PAUSE");
 	return 0;

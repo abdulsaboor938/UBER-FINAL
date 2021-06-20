@@ -16,6 +16,7 @@ public:
 	void R_comp(); // ride complete is to null current trip
 	virtual double getAvgRating();
 	void printu();
+	void printTrips();
 
 	~driver();
 
