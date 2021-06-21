@@ -34,6 +34,16 @@ public:
 	void trip_des(trip*);
 	//copy constructor is not available as one user can not be copied to another
 
+	//driver virtual functions
+	virtual void pickARide(trip*&);
+	virtual void ratePassanger(trip*&, int);
+	virtual void endARide();
+
+	// passenger virtual functions
+	virtual trip* bookRide(const string&, const string&);
+	virtual void rateDriver(trip*&, int);
+	virtual void cancelRide();
+
 	virtual double getAvgRating() = 0;
 	friend ostream& operator<<(ostream&, user&);
 

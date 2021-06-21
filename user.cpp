@@ -55,3 +55,31 @@ user::~user()
 {
 	user_des(this);
 }
+
+void user::pickARide(trip*&)
+{
+	cout << "This action can not be performed\n";
+}
+void user:: ratePassanger(trip*&, int)
+{
+	cout << "This action can not be performed\n";
+}
+
+void user::endARide()
+{
+	cout << "This action can not be performed\n";
+}
+
+trip* user::bookRide(const string&, const string&)
+{
+	cout << "Could not perform desired operation\n";
+	return nullptr;
+}
+void user::rateDriver(trip*&, int)
+{
+	cout << "Could not perform desired operation\n";
+}
+void user::cancelRide()
+{
+	cout << "Could not perform desired operation\n";
+}

@@ -101,11 +101,12 @@ void read_file(const char* D)
 		string null = "";
 		if (status == 'p')
 		{
-			new passenger(name, Date(day, month, year), email, ph, payment(null,null));
+			passenger* temp=new passenger(name, Date(day, month, year), email, ph, payment(null,null));
 		}
 		else if (status == 'd')
 		{
-			new driver(name, Date(day, month, year), email, ph,null,null);
+			driver* temp=new driver(name, Date(day, month, year), email, ph,null,null);
+
 		}
 
 	}
@@ -136,7 +137,7 @@ user* hr_passenger()
 	{
 		rating = allUsers[i]->getAvgRating();
 		p = dynamic_cast<passenger*>(allUsers[i]);
-		if (p==nullptr && rating > max) // dynamic cast only working on one child and not other that's why it is made equal
+		if (p == nullptr && rating > max) // dynamic cast only working on one child and not other that's why it is made equal
 		{
 			max = rating;
 			c = 1;
@@ -173,7 +174,7 @@ void user_des(const user* U)
 int main()
 {
 	
-	driver *d1= new driver("D1", Date(16,1,1990), "ayesha@yahoo.com", "0357757585", "Lin1197717", "VIN9817917");
+	/*driver *d1= new driver("D1", Date(16,1,1990), "ayesha@yahoo.com", "0357757585", "Lin1197717", "VIN9817917");
 	passenger* p1 = new passenger("P1", Date(10, 10, 1990), "ali@yahoo.com", "0334564334", payment("111-222-333-333", "card"));
 		
 	//////Test Case 1, user books, driver picks, driver ends (rating can be given only in this case)
@@ -247,6 +248,10 @@ int main()
 	cout << d1->getAvgRating() << endl;
 		
 	printAllUsers();
+	system("cls");
+
+	read_file("input.txt");
+
 	cout << *(hr_user()) << endl;
 	cout <<hr_user()->getAvgRating() << endl;
 	cout << "---------------\n\n";
@@ -263,9 +268,6 @@ int main()
 	}
 	uberTrips.clear();
 
-	system("cls");
-	read_file("input.txt");
-
 	delete p1;
 	delete d1;
 
@@ -274,7 +276,26 @@ int main()
 		if(allUsers[i]>0)
 			delete allUsers[i];
 	}
-	allUsers.clear();
+	allUsers.clear();*/
+	
+	read_file("input.txt");
+	addToUberTrips(allUsers[0]->bookRide("a","b"));
+	allUsers[1]->pickARide(uberTrips[0]);
+	allUsers[1]->endARide();
+	allUsers[0]->rateDriver(uberTrips[0],5);
+	allUsers[1]->ratePassanger(uberTrips[0],4);
+	cout << endl;
+	addToUberTrips(allUsers[2]->bookRide("a", "b"));
+	allUsers[1]->pickARide(uberTrips[1]);
+	allUsers[1]->endARide();
+	allUsers[1]->ratePassanger(uberTrips[1], 3);
+	allUsers[2]->rateDriver(uberTrips[1], 4);
+	cout << endl;
+	addToUberTrips(allUsers[5]->bookRide("a", "b"));
+	allUsers[1]->pickARide(uberTrips[2]);
+	allUsers[1]->endARide();
+	allUsers[5]->rateDriver(uberTrips[2], 5);
+	allUsers[1]->ratePassanger(uberTrips[2], 4);
 
 
 	system("PAUSE");

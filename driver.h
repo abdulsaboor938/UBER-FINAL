@@ -9,9 +9,9 @@ class driver :protected user
 public:
 	driver(const string&, const Date&, const string&, const string&, const string&, const string&);
 	
-	void pickARide(trip*&);
-	void ratePassanger(trip*&, int);
-	void endARide();
+	virtual void pickARide(trip*&);
+	virtual void ratePassanger(trip*&, int);
+	virtual void endARide();
 	string getName();
 	void R_comp(); // ride complete is to null current trip
 	virtual double getAvgRating();

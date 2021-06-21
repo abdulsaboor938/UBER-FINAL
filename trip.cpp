@@ -5,6 +5,7 @@
 trip::trip(const string& T, const string& D, passenger* P) :status{ 0 }, T_date(), Driver{ nullptr }, pick{ T },drop{D},D_rating{0},P_rating{0}
 {
 	Passenger = P;
+	cout<<P->getName() << " books a ride\n";
 }
 
 trip trip::operator=(trip& T)
@@ -16,25 +17,23 @@ trip trip::operator=(trip& T)
 void trip::change_status(const int& x)
 {
 	status = x;
-	if (status == 0)
-		cout << Passenger->getName() << " books a ride\n\n";
-	else if (status == 1)
-		cout << Driver->getName() << " picks " << Passenger->getName() << "'s ride\n\n";
+	if (status == 1)
+		cout << Driver->getName() << " picks " << Passenger->getName() << "'s ride\n";
 	else if (status == 2)
-		cout << Driver->getName() << " completes the ride\n\n";
+		cout << Driver->getName() << " completes the ride\n";
 	else if (status == 3)
-		cout << Passenger->getName() << " cancels the ride\n\n";
+		cout << Passenger->getName() << " cancels the ride\n";
 }
 
 void trip::rate_driver(const int& x)
 {
 	D_rating = x;
-	cout << Passenger->getName() << " rates " << Driver->getName() << " " << x << "\n\n";
+	cout << Passenger->getName() << " rates " << Driver->getName() << " " << x << "\n";
 }
 void trip::rate_passenger(const int& x)
 {
 	P_rating = x;
-	cout << Driver->getName() << " rates " << Passenger->getName() << " " << x << "\n\n";
+	cout << Driver->getName() << " rates " << Passenger->getName() << " " << x << "\n";
 
 }
 

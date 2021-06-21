@@ -11,9 +11,9 @@ public:
 	passenger(const string&, const Date&, const string&, const string&,const payment&);
 
 	string getName();
-	trip* bookRide(const string&, const string&);
-	void rateDriver(trip*&, int);
-	void cancelRide();
+	virtual trip* bookRide(const string&, const string&);
+	virtual void rateDriver(trip*&, int);
+	virtual void cancelRide();
 	void R_comp(); // to mark current trip as nullptr
 	virtual double getAvgRating();
 	void printu();
