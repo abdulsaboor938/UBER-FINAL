@@ -1,3 +1,6 @@
+/*
+File made by Abdul Saboor (20L-1113 / BDS 2A) on 21/6/2021
+*/
 #include<iostream>
 #include<string>
 using namespace std;
@@ -52,5 +55,6 @@ public:
 	friend class passenger;
 	friend class driver;
 
+	~trip();
 };
 #endif

@@ -1,12 +1,6 @@
 /*
-TODO
-	trip destructor & destructors
-	do we need to make all functions virtual
-	dynamic cast or make a signal inside user to indicate
-	general getter setter and copy constructors
-	is the way add users implemented correct?
+File made by Abdul Saboor (20L-1113 / BDS 2A) on 21/6/2021
 */
-
 #include<iostream>
 #include<vector>
 #include<fstream>
@@ -174,7 +168,7 @@ void user_des(const user* U)
 int main()
 {
 	
-	/*driver *d1= new driver("D1", Date(16,1,1990), "ayesha@yahoo.com", "0357757585", "Lin1197717", "VIN9817917");
+	driver *d1= new driver("D1", Date(16,1,1990), "ayesha@yahoo.com", "0357757585", "Lin1197717", "VIN9817917");
 	passenger* p1 = new passenger("P1", Date(10, 10, 1990), "ali@yahoo.com", "0334564334", payment("111-222-333-333", "card"));
 		
 	//////Test Case 1, user books, driver picks, driver ends (rating can be given only in this case)
@@ -260,23 +254,6 @@ int main()
 	cout << "---------------\n\n";
 	cout << *(hr_passenger()) << endl;
 	cout << hr_passenger()->getAvgRating() << endl;
-
-	for (int i = 0; i < (int)uberTrips.size(); i++)
-	{
-		if(uberTrips[i]>0)
-			delete uberTrips[i];
-	}
-	uberTrips.clear();
-
-	delete p1;
-	delete d1;
-
-	for (int i = 0; i < (int)allUsers.size(); i++)
-	{
-		if(allUsers[i]>0)
-			delete allUsers[i];
-	}
-	allUsers.clear();*/
 	
 	read_file("input.txt");
 	addToUberTrips(allUsers[0]->bookRide("a","b"));
@@ -297,6 +274,27 @@ int main()
 	allUsers[5]->rateDriver(uberTrips[2], 5);
 	allUsers[1]->ratePassanger(uberTrips[2], 4);
 
+	cout << *(hr_user()) << endl;
+	cout << hr_user()->getAvgRating() << endl;
+	cout << "---------------\n\n";
+	cout << *(hr_driver()) << endl;
+	cout << hr_driver()->getAvgRating() << endl;
+	cout << "---------------\n\n";
+	cout << *(hr_passenger()) << endl;
+	cout << hr_passenger()->getAvgRating() << endl;
+
+	for (int i = 0; i < (int)uberTrips.size(); i++)
+	{
+		if (uberTrips[i] > 0)
+			delete uberTrips[i];
+	}
+	uberTrips.clear();
+	for (int i = 0; i < (int)allUsers.size(); i++)
+	{
+		if (allUsers[i] > 0)
+			delete allUsers[i];
+	}
+	allUsers.clear();
 
 	system("PAUSE");
 	return 0;

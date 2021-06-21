@@ -1,3 +1,6 @@
+/*
+File made by Abdul Saboor (20L-1113 / BDS 2A) on 21/6/2021
+*/
 #include"passenger.h"
 #include"Source.h"
 
@@ -119,5 +122,16 @@ void passenger::deletePayment()
 	for (int i = 0; i < (int)p_methods.size(); i++)
 	{
 		p_methods.clear();
+	}
+}
+
+void passenger::trip_des(trip* t)
+{
+	for (int i = 0; i < (int)Trips.size(); i++)
+	{
+		if (Trips[i] == t)
+		{
+			Trips.erase(Trips.begin()+i);
+		}
 	}
 }

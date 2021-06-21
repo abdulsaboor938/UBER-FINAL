@@ -1,3 +1,6 @@
+/*
+File made by Abdul Saboor (20L-1113 / BDS 2A) on 21/6/2021
+*/
 #include"user.h"
 
 #ifndef DRIVER_H
@@ -17,6 +20,7 @@ public:
 	virtual double getAvgRating();
 	void printu();
 	void printTrips();
+	void trip_des(trip*);
 
 	~driver();
 

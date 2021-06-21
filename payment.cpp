@@ -1,3 +1,6 @@
+/*
+File made by Abdul Saboor (20L-1113 / BDS 2A) on 21/6/2021
+*/
 #include"payment.h"
 
 payment::payment(const string& C,const string& M):card_num{C},mode{M}

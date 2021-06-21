@@ -1,3 +1,6 @@
+/*
+File made by Abdul Saboor (20L-1113 / BDS 2A) on 21/6/2021
+*/
 #include"trip.h"
 #include"driver.h"
 #include"passenger.h"
@@ -112,4 +115,12 @@ void trip::rem_D()
 void trip::rem_P()
 {
 	Passenger = nullptr;
+}
+
+trip::~trip()
+{
+	if(Passenger!=nullptr)
+		Passenger->trip_des(this);
+	if(Driver!=nullptr)
+		Driver->trip_des(this);
 }

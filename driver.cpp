@@ -1,3 +1,6 @@
+/*
+File made by Abdul Saboor (20L-1113 / BDS 2A) on 21/6/2021
+*/
 #include"driver.h"
 #include"Source.h"
 
@@ -99,4 +102,15 @@ ostream& operator<<(ostream& out, const driver& D)
 		cout << "Currently not Driving" << endl;
 
 	return out;
+}
+
+void driver::trip_des(trip* t)
+{
+	for (int i = 0; i < (int)Trips.size(); i++)
+	{
+		if (Trips[i] == t)
+		{
+			Trips.erase(Trips.begin() + i);
+		}
+	}
 }
