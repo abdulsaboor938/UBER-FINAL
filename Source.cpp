@@ -95,11 +95,11 @@ void read_file(const char* D)
 		string null = "";
 		if (status == 'p')
 		{
-			passenger* temp=new passenger(name, Date(day, month, year), email, ph, payment(null,null));
+			new passenger(name, Date(day, month, year), email, ph, payment(null,null));
 		}
 		else if (status == 'd')
 		{
-			driver* temp=new driver(name, Date(day, month, year), email, ph,null,null);
+			new driver(name, Date(day, month, year), email, ph,null,null);
 
 		}
 

@@ -23,10 +23,6 @@ protected:
 	user(const string&, const Date&, const string&, const string&);
 	void print()const;
 	virtual void printu() = 0;
-	//copy constructors
-	//stream overload operators
-	//getters and setters
-	//average rating
 
 public:
 	void change_name(const string&);
